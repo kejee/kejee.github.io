@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Redirect to Alipay</title>
+</head>
+<body>
+	<script>
+		// 获取URL中的参数
+		const urlParams = new URLSearchParams(window.location.search);
+		const targetUrl = urlParams.get('url');
+		if (targetUrl) {
+			// 尝试跳转支付宝
+			window.location.href = targetUrl;
+			// 如果跳转失败，提示用户
+			setTimeout(() => {
+				alert("无法打开支付宝，请确认是否已安装支付宝应用。");
+			}, 3000);
+		} else {
+			alert("未提供有效的跳转链接！");
+		}
+	</script>
+</body>
+</html>
